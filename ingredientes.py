@@ -1,22 +1,23 @@
+import os
 import json
 
-ruta_ingredientes = "date/ingredientes.json"
+ruta_ingredientes = "data/ingredientes.json"
 
 def cargar_ingredientes():
-    with open('date/ingredientes.json','r',encoding='utf-8')as archivo:
+    with open('data/ingredientes.json','r',encoding='utf-8')as archivo:
         datos = json.load(archivo)
     return datos
 
 def guardar_ingredientes(lista):
     with open('data/ingredientes.json','w',encoding='utf-8') as archivo:
-        json.dum(lista,archivo, indent =4, ensure_ascii= False)
+        json.dump(lista,archivo, indent =4, ensure_ascii= False)
 
 def mostrar_ingredientes():
     ingrediente = cargar_ingredientes()
     for ingrediente in ingrediente:
         print('nombre:',ingrediente['nombre'])
         print('descripcion:',ingrediente['descripcion'])
-        print('presio:',ingrediente['presio'])
+        print('presio:',ingrediente['precio'])
         print('stock:',ingrediente['stock'])
         print('-' * 30)
 
